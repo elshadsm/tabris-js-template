@@ -11,4 +11,6 @@ export default class Sizes {
   public readonly xl: number = 28;
   public readonly xxl: number = 44;
 
+  public readonly highestElevation = 2000;
+
 }
