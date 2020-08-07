@@ -1,7 +1,7 @@
 import { Composite, TextView, Button, Constraint, Properties } from 'tabris';
 import { component, bindAll } from 'tabris-decorators';
 import { MainViewModel } from './MainViewModel';
-import { sizes, styles } from '../../resources/Resources';
+import { sizes, styles, texts } from '../../resources/Resources';
 
 @component
 export class MainView extends Composite {
@@ -20,9 +20,10 @@ export class MainView extends Composite {
           padding={sizes.l}
           bottom={Constraint.next}
           {...styles.header} />
-        <Button
+        <Button class='open'
           center
-          onSelect={() => this.model.continue()}>Tap here</Button>
+          text={texts.mainViewButton}
+          onSelect={() => this.model.open()} />
       </$>
     );
   }

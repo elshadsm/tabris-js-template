@@ -9,10 +9,12 @@
     "start": "tabris serve -a -w"
   },
   "dependencies": {
+    "lodash": "^4.17.19",
     "tabris": "nightly",
     "tabris-decorators": "~3.5.0"
   },
   "devDependencies": {
+    "@types/lodash.get": "^4.4.6",
     "eslint": "^7.5.0",
     "typescript": "~3.8.3"
   }

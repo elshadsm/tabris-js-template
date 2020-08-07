@@ -1,6 +1,7 @@
 
 export default class Texts {
 
-  public readonly test: string;
+  public readonly mainViewButton: string;
+  public readonly mainViewOpenedLabel: string;
 
 }

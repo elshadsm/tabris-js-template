@@ -10,7 +10,7 @@ export default class Navigation {
       drawerActionVisible />
   );
 
-  navigateTo(target: object) {
+  public navigateTo(target: object) {
     if (!(target instanceof Page)) {
       throw new Error('Unknown target');
     }

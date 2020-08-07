@@ -4,6 +4,7 @@ import Texts from './Texts';
 @shared
 export default class EnglishTexts implements Texts {
 
-  public readonly test: string = 'test';
+  public readonly mainViewButton: string = 'Open Users';
+  public readonly mainViewOpenedLabel: string = 'Opened!';
 
 }
