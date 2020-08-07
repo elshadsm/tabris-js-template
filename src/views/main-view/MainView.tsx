@@ -1,19 +1,28 @@
-import { Composite, TextView, Button, Constraint, Properties } from 'tabris';
-import { component, bindAll } from 'tabris-decorators';
+import { Composite, TextView, Button, Constraint, Properties, Listeners, EventObject } from 'tabris';
+import { component, bindAll, event } from 'tabris-decorators';
+import { sizes, styles, texts, colors } from '../../resources/Resources';
 import { MainViewModel } from './MainViewModel';
-import { sizes, styles, texts } from '../../resources/Resources';
 
 @component
 export class MainView extends Composite {
 
+  @event public readonly onNext: Listeners<EventObject<this>>;
   @bindAll({
     message: '#label.text'
   })
-  public model: MainViewModel;
+  model = new MainViewModel();
 
   constructor(properties: Properties<MainView>) {
-    super();
-    this.set(properties).append(
+    super({
+      background: colors.white,
+      ...properties
+    });
+    this.createUi();
+    this.registerObservers();
+  }
+
+  private createUi() {
+    this.append(
       <$>
         <TextView id='label'
           centerX
@@ -26,6 +35,10 @@ export class MainView extends Composite {
           onSelect={() => this.model.open()} />
       </$>
     );
+  }
+
+  private registerObservers() {
+    this.model.onNext(() => this.onNext.trigger());
   }
 
 }
